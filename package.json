@@ -7,5 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Misha Behersky",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "cli-app",
+    "cli",
+    "development",
+    "dev",
+    "build",
+    "tool",
+    "app"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3",
+    "tabtab": "^3.0.2"
+  }
 }
