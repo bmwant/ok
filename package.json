@@ -19,7 +19,10 @@
   ],
   "dependencies": {
     "chalk": "^4.1.0",
+    "figures": "^3.2.0",
     "inquirer": "^7.3.3",
+    "js-yaml": "^3.14.0",
+    "string-template": "^1.0.0",
     "tabtab": "^3.0.2"
   }
 }
