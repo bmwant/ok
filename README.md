@@ -21,7 +21,10 @@ $ npm i ok-cli
 tbd.
 
 ### Usage
-tbd.
+
+```bash
+$ ok tar
+```
 
 ### Writing receipts
 tbd.
