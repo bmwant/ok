@@ -18,12 +18,24 @@ $ npm i ok-cli
 ```
 
 ### Features
-tbd.
+
+* Hints/examples/default on parameters
+* Validation for parameters entered
+
 
 ### Usage
 
+* Invoke for the target command
+
 ```bash
 $ ok tar
+$ ok run tar  # equivalent
+```
+
+* List available receipes
+
+```bash
+$ ok list
 ```
 
 ### Writing receipts
