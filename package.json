@@ -1,6 +1,6 @@
 {
   "name": "ok",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Launch any CLI-tool with ease",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,5 @@
     "tabtab": "^3.0.2"
   },
   "devDependencies": {
-    "read-pkg-up": "^7.0.1",
-    "update-notifier": "^4.1.1"
   }
 }

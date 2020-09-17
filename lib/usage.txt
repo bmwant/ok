@@ -1,37 +1,21 @@
-Usage: ok GENERATOR [args] [options]
+Usage: ok <recipe> [options]
 
 General options:
   --help         # Print this info and generator's options and usage
   -f, --force    # Overwrite files that already exist
-  --version      # Print version
+  -V, --version  # Print version
   --no-color     # Disable colors
-  --[no-]insight # Toggle anonymous tracking
-  --generators   # Print available generators
-  --local-only   # Disable lookup of globally-installed generators
+  --confirm      # Ask confirmation before executing command
 
-Install a generator:
+Run recipe:
 
-  Generators can be installed through npm.
-
-  $ npm install generator-angular
-  $ yo angular --help
-
-Run local generators:
-
-  Additionally, you can also run local generators without installing via npm.
-
-  $ yo ./path/to/some/generator
+  $ ok <recipe-name>
+  $ ok curl
 
 Completion:
 
-  To enable shell completion for the yo command, try running
+  To enable shell completion for the ok command, try running
 
-  $ yo completion
+  $ ok completion
 
-Troubleshooting:
-
-  For any issues, try running
-
-  $ yo doctor
-
-Full Documentation: http://yeoman.io
+Full Documentation: https://github.com/bmwant/ok
