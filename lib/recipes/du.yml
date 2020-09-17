@@ -1,0 +1,11 @@
+name: "du"
+desc: "Shows directory size"
+cases:
+  - name: "Display size of a directory"
+    command: "du -sh {target}"
+    params:
+      - name: "target"
+        type: "local_path"
+        desc: "Enter path to the target folder"
+        default: "."
+

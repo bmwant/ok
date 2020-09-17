@@ -1,0 +1,15 @@
+name: "mv"
+desc: "Move files/directories on a local filesystem"
+cases:
+  - name: "Move files"
+    command: "mv {source} {destination}"
+    params:
+      - name: "source"
+        type: "local_path"
+        desc: "Enter path to file you want to move from"
+        hint: ""
+      - name: "destination"
+        type: "local_path"
+        desc: "Enter filepath for destination"
+        hint: ""
+
