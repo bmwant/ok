@@ -1,0 +1,15 @@
+name: "curl"
+desc: "Download files from URL"
+cases:
+  - name: "Download locally"
+    command: "curl -sL {source} -o {destination}"
+    params:
+      - name: "source"
+        type: "uri"
+        desc: "Enter URL you want to download from"
+        hint: "https://httpbin.org/image/png"
+      - name: "destination"
+        type: "local_path"
+        desc: "Enter filepath for destination"
+        hint: "image.png"
+
