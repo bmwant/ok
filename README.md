@@ -1,6 +1,6 @@
 ## OK
 
-[BADGES HERE]
+[![npm version](https://badge.fury.io/js/ok-run.svg)](https://badge.fury.io/js/ok-run)
 
 Tired of ...
 
@@ -14,7 +14,7 @@ Tired of ...
 ### Installation
 
 ```bash
-$ npm i ok-cli
+$ npm i ok-run
 ```
 
 ### Features
@@ -43,6 +43,6 @@ tbd.
 
 ### TODO
 
-* Add autocompletion for local paths []
-* Add support for different syntax based on OS used []
-* Add post-action hooks (e.g. show path/open resulting file)
+* Add autocompletion for local paths [ ]
+* Add support for different syntax based on OS used [ ]
+* Add post-action hooks (e.g. show path/open resulting file) [ ]
