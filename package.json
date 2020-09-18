@@ -1,5 +1,5 @@
 {
-  "name": "ok-cli",
+  "name": "ok-run",
   "version": "0.0.1",
   "description": "Launch any CLI-tool with ease",
   "main": "lib/cli.js",
