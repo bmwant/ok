@@ -6,7 +6,6 @@ import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -18,11 +17,10 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import ReactDOM from 'react-dom';
+import { Tree } from './listItems';
 import ReactMarkdown from 'react-markdown';
+import { getIndex, getPages } from '../Api';
 
-const page = '# This is a header\n\nAnd this is a paragraph';
 
 function Copyright() {
   return (
@@ -120,6 +118,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  const [tree, setTree] = React.useState([]);
+  const [page, setPage] = React.useState('');
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -127,6 +127,11 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  React.useEffect(() => {
+    getIndex().then((index) => setPage(index)).catch((error) => console.error(error));
+    getPages().then((pages) => setTree(pages)).catch((error) => console.error(error));
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -165,7 +170,7 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        <Tree items={tree} />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
