@@ -4,21 +4,22 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
 import Description from '@material-ui/icons/Description';
+import { getPage } from '../Api';
 
 // https://material-ui.com/components/material-icons/
 export function Tree(props) {
-  const items = props.items.map((page) =>
-    <ListItem button>
+  function handleClick(e, pageId) {
+    e.preventDefault();
+    props.changeSelected(pageId);
+  }
+
+  const items = props.items.map((page, i) =>
+    <ListItem button key={i}>
       <ListItemIcon>
         <Description />
       </ListItemIcon>
-      <ListItemText primary={page} />
+      <ListItemText primary={page} onClick={(e) => handleClick(e, page)} />
     </ListItem>
   );
   return (

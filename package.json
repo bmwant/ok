@@ -20,6 +20,8 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^6.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "figures": "^3.2.0",
     "glob": "^7.1.6",
     "inquirer": "^7.3.3",

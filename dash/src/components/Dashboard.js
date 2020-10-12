@@ -19,7 +19,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { Tree } from './listItems';
 import ReactMarkdown from 'react-markdown';
-import { getIndex, getPages } from '../Api';
+import { getConfig, getPage, getPages } from '../Api';
 
 
 function Copyright() {
@@ -34,7 +34,7 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240;
+const drawerWidth = 360;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
   },
   appBar: {
+    textAlign: 'center',
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
@@ -120,6 +121,7 @@ export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
   const [tree, setTree] = React.useState([]);
   const [page, setPage] = React.useState('');
+  const [header, setHeader] = React.useState('mdok');
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -127,10 +129,20 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const handleSelected = (pageId) => {
+    getPage(pageId).then((loadedPage) =>
+      setPage(loadedPage)
+    )
+  };
 
   React.useEffect(() => {
-    getIndex().then((index) => setPage(index)).catch((error) => console.error(error));
-    getPages().then((pages) => setTree(pages)).catch((error) => console.error(error));
+    getConfig().then(config => {
+      const indexPage = config.index;
+      setHeader(config.header);
+      getPage(indexPage).then((index) => setPage(index)).catch((error) => console.error(error));
+      getPages().then((pages) => setTree(pages)).catch((error) => console.error(error));
+    })
+
   }, []);
 
   return (
@@ -148,7 +160,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            {header}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -170,7 +182,7 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <Tree items={tree} />
+        <Tree items={tree} changeSelected={handleSelected} />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
